@@ -1,7 +1,7 @@
-package com.redhat.quarkus.sre;
+package com.redhat.quarkus.sre.inventory;
 
 
-import com.redhat.quarkus.sre.domain.Order;
+import com.redhat.quarkus.sre.inventory.domain.Order;
 
 import io.quarkus.kafka.client.serialization.ObjectMapperDeserializer;
 
