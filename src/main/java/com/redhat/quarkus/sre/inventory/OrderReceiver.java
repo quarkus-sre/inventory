@@ -38,16 +38,9 @@ public class OrderReceiver {
     public CompletionStage<Void> consume(Message<Order> orderMessage) {
         counter.increment();
         Order order = orderMessage.getPayload();
-        // try {
-        //     //1s 
-        //     Thread.sleep(1000);
-        // } catch (InterruptedException e) {
-        //     e.printStackTrace();
-        // }
         Duration between = Duration.between(order.getCreationDateTime(), LocalDateTime.now());
         timer.record(between);
         logger.infof("Duration in millis: %s", between.toMillis());
-
         return orderMessage.ack();
     }
 
