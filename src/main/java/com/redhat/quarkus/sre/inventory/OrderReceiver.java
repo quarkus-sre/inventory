@@ -7,11 +7,12 @@ import java.util.concurrent.CompletionStage;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
-import com.redhat.quarkus.sre.inventory.domain.Order;
-
+import org.eclipse.microprofile.opentracing.Traced;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 import org.eclipse.microprofile.reactive.messaging.Message;
 import org.jboss.logging.Logger;
+
+import com.redhat.quarkus.sre.inventory.domain.Order;
 
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
@@ -19,6 +20,7 @@ import io.micrometer.core.instrument.Timer;
 import io.smallrye.reactive.messaging.annotations.Blocking;
 
 @ApplicationScoped
+@Traced
 public class OrderReceiver {
 
     @Inject
